@@ -1,4 +1,4 @@
-package pl.baranski.bitbay;
+package pl.baranski.bitbay.so;
 
 import lombok.Data;
 
