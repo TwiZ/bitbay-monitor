@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.swing.*;
+import java.awt.*;
 
 @Slf4j
 public class BitBay {
@@ -20,10 +21,12 @@ public class BitBay {
         }
 
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringContext.class);
-        //        ApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"Spring-AutoScan.xml"});
         MainFrame mainFrame = (MainFrame) getContext().getBean("mainFrame");
         mainFrame.init();
         mainFrame.setVisible(true);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        mainFrame.setLocation(dim.width / 2 - mainFrame.getSize().width / 2,
+                dim.height / 2 - mainFrame.getSize().height / 2);
     }
 
     public static ApplicationContext getContext() {
